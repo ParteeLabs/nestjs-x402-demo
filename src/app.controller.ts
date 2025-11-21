@@ -18,11 +18,11 @@ import {
 } from 'nestjs-x402';
 
 @Controller('hello')
+@UseInterceptors(X402Interceptor)
 export class AppController {
   constructor(readonly paymentService: X402PaymentService) {}
 
   @Post('/static')
-  @UseInterceptors(X402Interceptor)
   @X402ApiOptions({
     apiPrices: [
       {
@@ -56,6 +56,7 @@ export class AppController {
 
   @Post('/dynamic')
   @X402ApiOptions({
+    isDynamicPricing: true,
     description: 'Get a greeting from me!',
     discoverable: true,
     inputSchema: {
