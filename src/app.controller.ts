@@ -86,7 +86,7 @@ export class AppController {
     @X402ReqConfig() x402Config: X402ApiConfig,
   ) {
     const prices: PricingRequirement[] = [
-      { price: `$${1 * number_of_greetings}`, network: 'base' },
+      { price: `$${0.001 * number_of_greetings}`, network: 'base' },
     ];
     const paymentHeader = req.header('X-PAYMENT');
     if (!paymentHeader) {
