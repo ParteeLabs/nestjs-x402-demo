@@ -62,7 +62,6 @@ export class AppController {
       your_name: {
         type: 'string',
         description: 'Your name',
-        nullable: false,
       },
       number_of_greetings: {
         type: 'number',
@@ -81,7 +80,7 @@ export class AppController {
     @Request() req: ExpressRequest,
     @Body()
     {
-      your_name,
+      your_name = 'stranger',
       number_of_greetings = 1,
     }: { your_name: string; number_of_greetings: number },
     @X402ReqConfig() x402Config: X402ApiConfig,
